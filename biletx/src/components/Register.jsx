@@ -1,16 +1,16 @@
 import React from "react";
 
-function Login() {
+function Register() {
     return (
         <div class="box">
             <div class="container">
                 <div class="top-header">
-                    <span>Have an account?</span>
-                    <header>Login</header>
+                    <span>Dont't have an account?</span>
+                    <header>Register</header>
                 </div>
             <form method="POST" action="">
                 <div class="input-field">
-                   <input type="text" class="input" name="username" placeholder="Username" required />
+                    <input type="text" class="input" name="username" placeholder="Username" required />
                 </div>
 
                 <div class="input-field">
@@ -23,14 +23,14 @@ function Login() {
 
                 <div class="bottom">
                     <div class="right">
-                        <a class="que" href="/register">Don't have an account?</a> <br />
+                        <a class="que" href="/login">Already have an account?</a> <br />
                         <a class="que" href="/">Back to main page</a>
                     </div>
                 </div>
             </form>
         </div>
-     </div>
+    </div>
     )
 }
 
-export default Login;
+export default Register;
