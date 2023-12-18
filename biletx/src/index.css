@@ -235,3 +235,17 @@ header {
   color: white;
   text-decoration: none;
 }
+
+.filter-div {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.filter-field {
+  width: 25%;
+  border-radius: 25px;
+  border-color: white;
+  padding: 10px;
+  color: black;
+}
