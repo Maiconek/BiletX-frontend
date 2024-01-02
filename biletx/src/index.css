@@ -249,3 +249,61 @@ header {
   padding: 10px;
   color: black;
 }
+
+
+.main {
+  margin-top: 2vh;
+  padding: 0 5vw 0 5vw;
+}
+.right {
+  padding: 2vh;
+}
+.left {
+  padding: 2vh;
+}
+.right-div {
+  height: 100%;
+  background-color: #28285f;
+  border-radius: 4vh;
+  padding: 1vh;
+  overflow: hidden;
+  text-align: center;
+}
+.map {
+  max-height: 55%;
+  min-height: 250px;
+  width: 100%;
+  margin: 0 12px 0 12px;
+  border-radius: 4vh;
+  margin-top: 2vh;
+  background-color: #28285f;
+}
+.left-div {
+  width: 100%;
+  height: fit-content;
+  margin-bottom: auto;
+  background-color: #28285f;
+  border-radius: 4vh;
+  padding: 1vh;
+}
+.event-name {
+  color: white;
+  padding-left: 0vw;
+}
+.event-data {
+  color: white;
+  font-size: 22px;
+}
+p {
+  font-size: 18px;
+}
+.description > * {
+  padding: 0 auto 0 auto;
+}
+.event-img {
+  object-fit: cover;
+  border-radius: 4vh;
+  height: auto;
+  width: 100%;
+  aspect-ratio: 4/3;
+}
