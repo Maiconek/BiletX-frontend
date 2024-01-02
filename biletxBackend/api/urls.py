@@ -3,5 +3,6 @@ from . import views
 
 urlpatterns = [
     path('events/', views.getEvents),
-    path('event/<str:pk>/', views.getSingleEvent)
+    path('event/<str:pk>/', views.getSingleEvent),
+    path('events/create/', views.createEvent)
 ]
