@@ -26,3 +26,9 @@ def createEvent(request):
             serializer.save()
             return Response(serializer.data, status=status.HTTP_201_CREATED)
         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+
+@api_view(['DELETE'])
+def deleteEvent(request, pk):
+    event = Event.objects.get(id=pk)
+    Event.delete(event)
+    return Response("OK", status=status.HTTP_200_OK)
