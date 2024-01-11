@@ -14,6 +14,8 @@ from rest_framework.decorators import api_view
 # local apps import
 from .serializers import UserSerializer, EventSerializer
 from events.models import Event
+from django.contrib.auth.models import User
+
 
 @api_view(['GET'])
 def getEvents(request):
@@ -43,6 +45,12 @@ def deleteEvent(request, pk):
     event = Event.objects.get(id=pk)
     Event.delete(event)
     return Response("OK", status=status.HTTP_200_OK)
+
+@api_view(['GET'])
+def getUsers(request):
+    users = User.objects.all()
+    serializer = UserSerializer(users, many=True)
+    return Response(serializer.data)
 
 class RegisterView(generics.CreateAPIView):
     serializer_class = UserSerializer

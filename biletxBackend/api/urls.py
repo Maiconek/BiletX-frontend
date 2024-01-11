@@ -6,6 +6,7 @@ urlpatterns = [
     path('event/<str:pk>/', views.getSingleEvent),
     path('events/create/', views.createEvent),
     path('events/delete/<str:pk>', views.deleteEvent),
+    path('users/', views.getUsers),
     path('user/create', views.RegisterView.as_view()),
     path('user/login', views.LoginView.as_view()),
     path('user/logout', views.LogoutView.as_view())
