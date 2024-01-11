@@ -294,8 +294,13 @@ header {
   color: white;
   font-size: 22px;
 }
+
 p {
   font-size: 18px;
+}
+
+.description {
+  color: white;
 }
 .description > * {
   padding: 0 auto 0 auto;

@@ -1,7 +1,18 @@
-from rest_framework.decorators import api_view
+# django imports
+from django.contrib.auth import login
+
+# rest_framework imports
+from rest_framework import generics, permissions
 from rest_framework.response import Response
+from rest_framework.views import APIView
 from rest_framework import status
-from .serializers import EventSerializer
+from django.contrib.auth import authenticate, login, logout
+from django.contrib.auth.decorators import login_required
+from rest_framework.decorators import api_view
+
+
+# local apps import
+from .serializers import UserSerializer, EventSerializer
 from events.models import Event
 
 @api_view(['GET'])
@@ -32,3 +43,29 @@ def deleteEvent(request, pk):
     event = Event.objects.get(id=pk)
     Event.delete(event)
     return Response("OK", status=status.HTTP_200_OK)
+
+class RegisterView(generics.CreateAPIView):
+    serializer_class = UserSerializer
+    permission_classes = [permissions.AllowAny]
+
+class LoginView(APIView):
+    permission_classes = [permissions.AllowAny]
+
+    def post(self, request):
+        username = request.data.get('username')
+        password = request.data.get('password')
+        user = authenticate(request, username=username, password=password)
+
+        if user:
+            login(request, user)
+            serializer = UserSerializer(user)
+            return Response(serializer.data)
+        else:
+            return Response({'error': 'Invalid credentials'}, status=status.HTTP_401_UNAUTHORIZED)
+
+class LogoutView(APIView):
+    permission_classes = [permissions.IsAuthenticated]
+
+    def post(self, request):
+        logout(request)
+        return Response({'message': 'Logout successful'})
