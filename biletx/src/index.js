@@ -7,11 +7,14 @@ import Login from './components/Login';
 import Register from './components/Register';
 import EventPage from './components/EventPage';
 import popularEvents from './data/popular-events';
+import EventProvider from "./context/EventContext";
+
 
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
+    {/* <EventProvider>     */}
     <BrowserRouter>
     <Routes>
       <Route path="/" element={<App />}/>
@@ -20,6 +23,8 @@ root.render(
       <Route path="/event/:title" element={<EventPage events={popularEvents} />} />
     </Routes>  
     </BrowserRouter>  
+    {/* </EventProvider> */}
+
   </React.StrictMode>
 );
 
