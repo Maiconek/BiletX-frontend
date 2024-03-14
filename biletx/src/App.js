@@ -5,15 +5,11 @@ import Heading from "./components/Heading";
 import TopEvents from "./components/TopEvents";
 
 
-// import popularEvents from "./data/popular-events";
-import topEvents from "./data/top-events";
 import { useContext, useEffect, useState } from "react";
-import EventContext from "./context/EventContext"
 
 
 
 function App() {
-  // const { events, fetchEvents } = useContext(EventContext)
   const [events, setEvents] = useState([])
 
   useEffect(() => {
@@ -29,18 +25,20 @@ function App() {
           });
   }
 
-  const filteredProducts = events
+  const popularEvents = events
       ? events.filter((product) => product.category === "Popular")
       : events;
     
-  console.log(filteredProducts)
+  const topEvents = events
+      ? events.filter((product) => product.category === "Top")
+      : events;
 
-
+  
   return (
     <>      
         <Header />
         <Heading title="POPULAR EVENTS" />
-        <PopularEvents props={filteredProducts} />
+        <PopularEvents props={popularEvents} />
         <Heading title="TOP EVENTS" />
         <TopEvents props={topEvents} />
         <Footer />   

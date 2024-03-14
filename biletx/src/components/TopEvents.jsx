@@ -17,8 +17,8 @@ function TopEvents({props}) {
                         <TopEventCard 
                         key={item.title} 
                         id={item.title} 
-                        title={item.title} 
-                        image={item.image} 
+                        title={item.name} 
+                        image={item.preview_image} 
                         price={item.price}/>
                     ))}
                 </div>

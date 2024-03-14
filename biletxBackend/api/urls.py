@@ -1,4 +1,4 @@
-from django.urls import path
+from django.urls import path, re_path
 from . import views
 
 urlpatterns = [
@@ -7,7 +7,7 @@ urlpatterns = [
     path('events/create/', views.createEvent),
     path('events/delete/<str:pk>', views.deleteEvent),
     path('users/', views.getUsers),
-    path('user/create', views.RegisterView.as_view()),
-    path('user/login', views.LoginView.as_view()),
-    path('user/logout', views.LogoutView.as_view())
+    re_path('login', views.login),
+    re_path('register', views.register),
+    re_path('test-token', views.test_token)
 ]
