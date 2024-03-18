@@ -3,9 +3,11 @@ import Footer from "./components/Footer";
 import PopularEvents from "./components/PopularEvents";
 import Heading from "./components/Heading";
 import TopEvents from "./components/TopEvents";
+import EventPage from "./components/EventPage";
+import { Route, Routes } from "react-router-dom";
 
 
-import { useContext, useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 
 
 
@@ -41,7 +43,10 @@ function App() {
         <PopularEvents props={popularEvents} />
         <Heading title="TOP EVENTS" />
         <TopEvents props={topEvents} />
-        <Footer />   
+        <Footer />
+        <Routes>
+        </Routes>
+   
     </>
   );
 }

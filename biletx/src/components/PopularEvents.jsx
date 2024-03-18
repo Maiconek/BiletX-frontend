@@ -14,7 +14,7 @@ function PopularEvents({props}) {
                 item : 
                 item.title.toLowerCase().includes(search)
             }).map((item, index) => (
-                <EventCard key={index} id={index} title={item.name} image={item.preview_image} price={item.price}/>
+                <EventCard key={item.id} id={item.id} title={item.name} image={item.preview_image} price={item.price}/>
             ))}
         </div> 
         </>

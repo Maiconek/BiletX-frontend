@@ -4,17 +4,17 @@ import Footer from "./Footer";
 import { useParams } from "react-router-dom";
 
 function EventPage({events}) {
-    // const eventId = match.params.title;
-    // console.log(eventId)
-    // const event = events.find(event => event.title === eventId)
     const params = useParams()
-    const title = params.title
-    const event = events.find(event => event.title === title)
+    const id = params.id
+    const event = events.find(event => event.id === id)
+    console.log("iD: " + id)
+    console.log(event)
 
     if(!event) {
         return (
             <div>
                 <Header/>
+                <Footer/>
                 <div>Bo</div>
             </div>
         )
