@@ -312,3 +312,13 @@ p {
   width: 100%;
   aspect-ratio: 4/3;
 }
+
+.purple {
+  background-color: #452c63;
+  color: white;
+}
+
+.purple:hover {
+  background-color: #341b52;
+  color: white;
+}

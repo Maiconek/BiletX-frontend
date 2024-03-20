@@ -13,10 +13,10 @@ function TopEvents({props}) {
                         return search.toLowerCase() === '' ? 
                         item : 
                         item.title.toLowerCase().includes(search)
-                    }).map((item, index) => (
+                    }).map((item) => (
                         <TopEventCard 
-                        key={index} 
-                        id={index} 
+                        key={item.id} 
+                        id={item.id} 
                         title={item.name} 
                         image={item.preview_image} 
                         price={item.price}/>

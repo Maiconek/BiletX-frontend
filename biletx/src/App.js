@@ -1,13 +1,11 @@
-import Header from "./components/Header";
-import Footer from "./components/Footer";
-import PopularEvents from "./components/PopularEvents";
-import Heading from "./components/Heading";
-import TopEvents from "./components/TopEvents";
-import EventPage from "./components/EventPage";
-import { Route, Routes } from "react-router-dom";
-
-
+import { Route, Routes, BrowserRouter } from "react-router-dom";
 import { useEffect, useState } from "react";
+import MainPage from "./components/MainPage";
+import { UserProvider } from "./context/UserContext";
+import Register from "./components/Register"
+import Login from "./components/Login"
+import EventPage from "./components/EventPage"
+
 
 
 
@@ -37,16 +35,18 @@ function App() {
 
   
   return (
-    <>      
-        <Header />
-        <Heading title="POPULAR EVENTS" />
-        <PopularEvents props={popularEvents} />
-        <Heading title="TOP EVENTS" />
-        <TopEvents props={topEvents} />
-        <Footer />
+    <>
+      <UserProvider>
+        <BrowserRouter>
         <Routes>
-        </Routes>
-   
+          <Route path="*" element={<MainPage popular={popularEvents} top={topEvents}/>}/>
+          <Route path="/login" element={<Login />} />
+          <Route path="/register" element={<Register />} />
+          {/* <Route path="*" element={<div style={{color : 'white'}}> Not Found or You do not have permission.</div>}/> */}
+          <Route path="/event/:id" element={<EventPage events={events} />} />
+        </Routes>  
+        </BrowserRouter> 
+      </UserProvider>       
     </>
   );
 }

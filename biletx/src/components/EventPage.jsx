@@ -1,7 +1,7 @@
 import React from "react";
 import Header from "./Header";
 import Footer from "./Footer";
-import { useParams } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 
 function EventPage({events}) {
     const params = useParams()
@@ -26,23 +26,18 @@ function EventPage({events}) {
             <div className="row main">
                 <div className="col-lg-6 left">
                     <div className="left-div">
-                        <img className="event-img" src={event.image} alt="event"/>
+                        <img className="event-img" src={event.preview_image} alt="event"/>
                     </div>
                 </div>
                 <div className="col-lg-6 right">
                     <div className="right-div">
-                        <h1 className="event-name">{event.title}</h1>
-                        <h2 className="event-name">10 zł</h2>
-                        <p className="description">
-                        Lorem Ipsum is simply dummy text of the printing and typesetting industry. 
-                        Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, 
-                        when an unknown printer took a galley of type and scrambled it to make a type specimen book. 
-                        It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. 
-                        It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, 
-                        and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.
-                        </p>
-                        <h3 className="event-data">When? 12.01.24</h3>
-                        <h3 className="event-data">Where? Legnica</h3>
+                        <h1 className="event-name">{event.name}</h1>
+                        <h2 className="event-name">Price - {event.price} zł</h2>
+                        <p className="description">{event.description}</p>
+                        <h3 className="event-data">When? {event.date.slice(0, 10)}</h3>
+                        <h3 className="event-data">Where? {event.address}</h3>
+                        <button type="button" className="btn purple me-3 mt-3">Buy a ticket</button>
+                        <Link to="/"><button type="button" className="btn btn-danger mt-3">Go back</button></Link>
                     </div>
                 </div>
         {/* <div class="map" id="mapContainer">
