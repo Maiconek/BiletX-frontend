@@ -1,5 +1,6 @@
 import React, { useContext } from "react";
 import { UserContext } from "../context/UserContext";
+import { Link } from "react-router-dom";
 
 function Header() {
   const {user} = useContext(UserContext)
@@ -11,9 +12,9 @@ function Header() {
       </div>
       <div className="col-lg-6 header-items">
       {user === null ? 
-        <a className="header-links" id="account-link" href="/login">Login</a>
+        <Link className="header-links" id="account-link" to="/login">Login</Link>
         :
-        <a className="header-links" id="account-link" href="/login">{user}</a>
+        <Link className="header-links" id="account-link" to="/">{user}</Link>
       }
         <i className='bx bxs-user-account bx-flashing bx-md'></i>
       </div>
