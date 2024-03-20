@@ -12,7 +12,7 @@ function TopEvents({props}) {
                     {props.filter((item) => {
                         return search.toLowerCase() === '' ? 
                         item : 
-                        item.title.toLowerCase().includes(search)
+                        item.name.toLowerCase().includes(search)
                     }).map((item) => (
                         <TopEventCard 
                         key={item.id} 
